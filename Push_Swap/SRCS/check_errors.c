@@ -6,7 +6,7 @@
 /*   By: afrolova <afrolova@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 01:45:09 by afrolova          #+#    #+#             */
-/*   Updated: 2022/08/16 00:11:10 by afrolova         ###   ########.fr       */
+/*   Updated: 2022/08/16 19:02:48 by afrolova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../INC/push_swap.h"

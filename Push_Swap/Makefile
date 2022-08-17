@@ -6,7 +6,7 @@
 #    By: afrolova <afrolova@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/12 00:19:49 by afrolova          #+#    #+#              #
-#    Updated: 2022/08/16 00:11:52 by afrolova         ###   ########.fr        #
+#    Updated: 2022/08/17 00:30:48 by afrolova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,10 @@ SRCS = 	main.c \
 	   	check_errors.c \
 		push_swap.c \
 		order_assign.c \
+		swap_mov_and_actions.c \
+		push_mov_and_actions.c \
+		rotate_mov_and_actions.c \
+		reverse_mov_and_actions.c \
 		two_algorithm.c \
 		three_algorithm.c \
 		five_algorithm.c \

@@ -6,8 +6,12 @@
 /*   By: afrolova <afrolova@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 01:46:47 by afrolova          #+#    #+#             */
-/*   Updated: 2022/08/12 01:47:18 by afrolova         ###   ########.fr       */
+/*   Updated: 2022/08/16 19:13:15 by afrolova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../INC/push_swap.h"
 
+void	two_numbers(t_stack *a)
+{
+	sa_action(a);
+}

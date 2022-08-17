@@ -6,7 +6,7 @@
 /*   By: afrolova <afrolova@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 00:20:56 by afrolova          #+#    #+#             */
-/*   Updated: 2022/08/16 00:11:13 by afrolova         ###   ########.fr       */
+/*   Updated: 2022/08/17 02:35:17 by afrolova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../INC/push_swap.h"
@@ -18,7 +18,14 @@ static void	init_element(t_element *o, char *arg)
 	o->prev = NULL;
 }
 
-void	init_stack_a (t_stack *a, int argc, char **argv, int *order)
+void	init_stack_b(t_stack *b)
+{
+	b->length = 0;
+	b->top_element = NULL;
+	b->bottom_element = NULL;
+}
+
+void	init_stack_a (t_stack *a, int argc, char **argv)
 {
 	t_element	*new_element;
 	t_element	*tmp;
@@ -44,12 +51,8 @@ void	init_stack_a (t_stack *a, int argc, char **argv, int *order)
 			tmp->next = a->bottom_element;
 		}
 	}
-	if(a->length == 1)
-		*order = 1;
-
-	printf("El lenght %d\n", a->length);
-	printf("En top element tengo el %d\n", a->top_element->value);
-	printf("En el bottom element tengo el %d\n", a->bottom_element->value);
+	printf("init_stack - BOTTOM %d", a->bottom_element->value);
+	printf("init_stack - BOTTOM_PREV %d", a->bottom_element->prev->value);
 }
 
 void	assign_index(t_stack *a)
@@ -73,7 +76,6 @@ void	assign_index(t_stack *a)
 			tmp = current->next;
 		}
 		a->bottom_element->index = index;
-		printf("Index del numero %d, es %d\n", a->bottom_element->value, a->bottom_element->index);
 		tmp = a->bottom_element->next;
 		a->bottom_element = tmp;
 		count++;
