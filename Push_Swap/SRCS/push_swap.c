@@ -6,7 +6,7 @@
 /*   By: afrolova <afrolova@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 00:20:56 by afrolova          #+#    #+#             */
-/*   Updated: 2022/08/17 02:35:17 by afrolova         ###   ########.fr       */
+/*   Updated: 2022/08/18 22:43:47 by afrolova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../INC/push_swap.h"
@@ -18,13 +18,6 @@ static void	init_element(t_element *o, char *arg)
 	o->prev = NULL;
 }
 
-void	init_stack_b(t_stack *b)
-{
-	b->length = 0;
-	b->top_element = NULL;
-	b->bottom_element = NULL;
-}
-
 void	init_stack_a (t_stack *a, int argc, char **argv)
 {
 	t_element	*new_element;
@@ -32,6 +25,7 @@ void	init_stack_a (t_stack *a, int argc, char **argv)
 
 	a->length = 0;
 	a->top_element = NULL;
+	a->bottom_element = NULL;
 	while ((a->length + 1) < argc)
 	{
 		new_element = malloc(sizeof(t_element));
@@ -39,20 +33,25 @@ void	init_stack_a (t_stack *a, int argc, char **argv)
 		if(!a->top_element)
 		{
 			a->length++;
-			a->bottom_element = new_element;
 			a->top_element = new_element;
+			a->bottom_element = new_element;
 		}
 		else
 		{
 			a->length++;
 			tmp = a->bottom_element;
 			a->bottom_element = new_element;
-			a->bottom_element->prev = tmp;
 			tmp->next = a->bottom_element;
+			a->bottom_element->prev = tmp;
 		}
 	}
-	printf("init_stack - BOTTOM %d", a->bottom_element->value);
-	printf("init_stack - BOTTOM_PREV %d", a->bottom_element->prev->value);
+}
+
+void	init_stack_b(t_stack *b)
+{
+	b->length = 0;
+	b->top_element = NULL;
+	b->bottom_element = NULL;
 }
 
 void	assign_index(t_stack *a)
@@ -63,21 +62,19 @@ void	assign_index(t_stack *a)
 	int			index;
 
 	count = 0;
-	a->bottom_element = a->top_element;
+	current = a->top_element;
 	while (count < a->length)
 	{
-		tmp = a->top_element;
 		index = 0;
+		tmp = a->top_element;
 		while (tmp != NULL)
 		{
-			current = tmp;
-			if (a->bottom_element->value > current->value)
+			if (current->value > tmp->value)
 				index++;
-			tmp = current->next;
+			tmp = tmp->next;
 		}
-		a->bottom_element->index = index;
-		tmp = a->bottom_element->next;
-		a->bottom_element = tmp;
+		current->index = index;
+		current = current->next;
 		count++;
 	}
 }

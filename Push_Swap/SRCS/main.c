@@ -6,16 +6,10 @@
 /*   By: afrolova <afrolova@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 01:43:28 by afrolova          #+#    #+#             */
-/*   Updated: 2022/08/17 02:35:06 by afrolova         ###   ########.fr       */
+/*   Updated: 2022/08/18 22:36:25 by afrolova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../INC/push_swap.h"
-
-/*void	resolve_case_two_pieces(t_stack *a)
-{
-
-	sa_action(a);
-}*/
 
 int	main(int argc, char **argv)
 {
@@ -29,12 +23,11 @@ int	main(int argc, char **argv)
 	b.bottom_element = NULL;
 	init_stack_a (&a, argc, argv);
 	init_stack_b (&b);
-	assign_index (&a);
-	print_stack(&a);
+ 	assign_index (&a);
+//	print_stack(&a);
 	resolve(&a, &b);
-	print_stack(&a);
-	write(1, "All OK\n", 7);
-//	free_all(stack *a);
+//	print_stack(&a);
+	free_all(&a);
 	return (0);
 }
 
@@ -45,8 +38,32 @@ void	resolve(t_stack *a, t_stack *b)
 	total_pieces = a->length + b->length;
 	if (total_pieces == 2)
 		two_numbers(a);
-	if (total_pieces > 2)
-		ra_action(a);
+	if (total_pieces == 3)
+		three_numbers(a);
+	if (total_pieces == 4)
+		four_numbers(a, b);
+	if (total_pieces == 5)
+		five_numbers(a, b);
+}
+
+int	stack_in_order(t_stack *a)
+{
+	t_element	*first;
+	t_element	*second;
+	int			count;
+
+	count = 0;
+	first = a->top_element;
+	while (first->next)
+	{
+		second = first->next;
+		if (first->index > second->index)
+			count++;
+		first = second;
+	}
+	if (count == 0)
+		return (1);
+	return (0);
 }
 
 void	print_error(void)
@@ -56,9 +73,7 @@ void	print_error(void)
 	exit (-1);
 }
 
-//Hacer Free del stack B ??!!!
-
-/*void	free_all(t_stack *f)
+void	free_all(t_stack *f)
 {
 	t_element	*tmp;
 
@@ -70,25 +85,26 @@ void	print_error(void)
 	}
 	free(f->top_element);
 }
-}*/
 
 //FUNCION para ver la lista - A BORRAR
 
 void	print_stack(t_stack *stack)
 {
 	t_element	*tmp;
-
+	
 	if(stack->length < 1)
 	{
 		printf("El stack esta vacio\n");
 		return ;
 	}
+	//printf("Desde print stack, el bottom element pointer es: %p\n", stack->bottom_element);
+	//printf("Desde print stack, el top element pointer es: %p\n", stack->top_element);
 	tmp = stack->top_element;
-	printf("\n%d\n",  tmp->value);
+	printf("\nValue: %d\tIndex: %d\n", tmp->value, tmp->index);
 	while (tmp->next)
 	{
 		tmp = tmp->next;
-		printf("\n%d\n", tmp->value);
+		printf("\nValue: %d\tIndex: %d\n", tmp->value, tmp->index);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: afrolova <afrolova@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 00:51:52 by afrolova          #+#    #+#             */
-/*   Updated: 2022/08/17 02:35:14 by afrolova         ###   ########.fr       */
+/*   Updated: 2022/08/18 22:45:29 by afrolova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -15,6 +15,13 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "../../Libft/libft.h"
+
+//MACROS
+
+#define NUM_NOT_FOUND 0
+#define ROTATE_NORM 1
+#define ROTATE_REV 2
+#define	NUM_IN_TOP 3
 
 typedef struct s_element
 {
@@ -37,6 +44,9 @@ typedef struct s_stack
 
 void	resolve(t_stack *a, t_stack *b);
 void	print_error();
+int		stack_in_order(t_stack *a);
+//funcion A BORRAR
+void		print_stack(t_stack *stack);
 
 //push_swap
 
@@ -72,12 +82,31 @@ void	ra_action(t_stack *a);
 void	rb_action(t_stack *b);
 void	rr_action(t_stack *a, t_stack *b);
 
+//reverse_mov_and_actions
+
+void	mov_rra_rrb_rrr(t_stack *stack);
+void	rra_action(t_stack *a);
+void	rrb_action(t_stack *b);
+void	rrr_action(t_stack *a, t_stack *b);
+
 //Algorithms_fewnumbers
 
 void	two_numbers(t_stack *a);
+void	three_numbers(t_stack *a);
 
-//funcion A BORRAR
+//five_algorithm.c
 
-void		print_stack(t_stack *stack);
+void	four_numbers(t_stack *a, t_stack *b);
+void	five_numbers(t_stack *a, t_stack *b);
+
+
+//smart_rotate
+
+int		smart_rotate_direct(int num, t_stack *stack, int *mov);
+void	put_num_in_top_a(int num, t_stack *a);
+void	put_num_in_top_b(int num, t_stack *b);
+
+void	free_all(t_stack *f);
+
 
 #endif
