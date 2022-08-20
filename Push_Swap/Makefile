@@ -6,7 +6,7 @@
 #    By: afrolova <afrolova@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/12 00:19:49 by afrolova          #+#    #+#              #
-#    Updated: 2022/08/18 22:45:58 by afrolova         ###   ########.fr        #
+#    Updated: 2022/08/20 21:13:20 by afrolova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,8 +44,8 @@ SRCS = 	main.c \
 		reverse_mov_and_actions.c \
 		two_three_algorithm.c \
 		four_five_algorithm.c \
-		smart_rotate.c \
-		five_to_onehundred_algorithm.c
+		from_six_algorithm.c \
+		smart_rotate.c 
 
 OBJS = $(addprefix $(DIR_OBJ)/, $(SRCS:.c=.o))
 

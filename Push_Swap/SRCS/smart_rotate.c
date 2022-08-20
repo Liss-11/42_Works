@@ -6,7 +6,7 @@
 /*   By: afrolova <afrolova@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 22:02:27 by afrolova          #+#    #+#             */
-/*   Updated: 2022/08/18 21:13:56 by afrolova         ###   ########.fr       */
+/*   Updated: 2022/08/20 22:26:26 by afrolova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../INC/push_swap.h"
@@ -85,12 +85,12 @@ void	put_num_in_top_b(int num, t_stack *b)
 		return;
 		if (rotate == ROTATE_NORM)
 	{
-//		poner norma de rotar con un while
-		return ;
+		while (++x <= mov)
+			rb_action(b);
 	}
 	if (rotate == ROTATE_REV)
 	{
-		return;
-//		poner norma de rotar con un while
+		while (++x <= mov)
+			rrb_action(b);
 	}
 }

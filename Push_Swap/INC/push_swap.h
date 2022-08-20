@@ -6,7 +6,7 @@
 /*   By: afrolova <afrolova@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 00:51:52 by afrolova          #+#    #+#             */
-/*   Updated: 2022/08/18 22:45:29 by afrolova         ###   ########.fr       */
+/*   Updated: 2022/08/20 22:26:39 by afrolova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -89,16 +89,21 @@ void	rra_action(t_stack *a);
 void	rrb_action(t_stack *b);
 void	rrr_action(t_stack *a, t_stack *b);
 
-//Algorithms_fewnumbers
+//two_three_algorith
 
 void	two_numbers(t_stack *a);
 void	three_numbers(t_stack *a);
 
-//five_algorithm.c
+//four_five_algorithm
 
 void	four_numbers(t_stack *a, t_stack *b);
 void	five_numbers(t_stack *a, t_stack *b);
 
+//from_six_algorith
+
+void	from_six_numbers(t_stack *a, t_stack *b, int n_chunks);
+void	to_stack_b(t_stack *a, t_stack *b, int n_chunks);
+void	order_stack_b(t_stack *b, int index, int cut_num);
 
 //smart_rotate
 

@@ -6,7 +6,7 @@
 /*   By: afrolova <afrolova@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 01:43:28 by afrolova          #+#    #+#             */
-/*   Updated: 2022/08/18 22:36:25 by afrolova         ###   ########.fr       */
+/*   Updated: 2022/08/20 22:26:19 by afrolova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../INC/push_swap.h"
@@ -26,8 +26,8 @@ int	main(int argc, char **argv)
  	assign_index (&a);
 //	print_stack(&a);
 	resolve(&a, &b);
-//	print_stack(&a);
-	free_all(&a);
+//	print_stack(&b);
+//	free_all(&a);
 	return (0);
 }
 
@@ -44,6 +44,13 @@ void	resolve(t_stack *a, t_stack *b)
 		four_numbers(a, b);
 	if (total_pieces == 5)
 		five_numbers(a, b);
+	else if (total_pieces < 20)
+		from_six_numbers(a, b, 2);
+	else if (total_pieces < 101)
+		from_six_numbers(a, b, 5);
+	else
+		from_six_numbers(a, b, 8);
+		//	if (total_pieces > 100)
 }
 
 int	stack_in_order(t_stack *a)
@@ -97,10 +104,8 @@ void	print_stack(t_stack *stack)
 		printf("El stack esta vacio\n");
 		return ;
 	}
-	//printf("Desde print stack, el bottom element pointer es: %p\n", stack->bottom_element);
-	//printf("Desde print stack, el top element pointer es: %p\n", stack->top_element);
 	tmp = stack->top_element;
-	printf("\nValue: %d\tIndex: %d\n", tmp->value, tmp->index);
+	printf("Value: %d\tIndex: %d\n", tmp->value, tmp->index);
 	while (tmp->next)
 	{
 		tmp = tmp->next;
