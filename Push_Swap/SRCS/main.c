@@ -6,7 +6,7 @@
 /*   By: afrolova <afrolova@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 01:43:28 by afrolova          #+#    #+#             */
-/*   Updated: 2022/08/20 22:26:19 by afrolova         ###   ########.fr       */
+/*   Updated: 2022/08/22 15:57:05 by afrolova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../INC/push_swap.h"
@@ -19,38 +19,30 @@ int	main(int argc, char **argv)
 	if (argc <= 1)
 		return(0);
 	check_errors(argc, argv);
-	b.top_element = NULL;
-	b.bottom_element = NULL;
 	init_stack_a (&a, argc, argv);
 	init_stack_b (&b);
  	assign_index (&a);
-//	print_stack(&a);
 	resolve(&a, &b);
-//	print_stack(&b);
-//	free_all(&a);
+	free_all(&a);
 	return (0);
 }
 
 void	resolve(t_stack *a, t_stack *b)
 {
-	int	total_pieces;
-
-	total_pieces = a->length + b->length;
-	if (total_pieces == 2)
+	if (a->length == 2)
 		two_numbers(a);
-	if (total_pieces == 3)
+	if (a->length == 3)
 		three_numbers(a);
-	if (total_pieces == 4)
+	if (a->length == 4)
 		four_numbers(a, b);
-	if (total_pieces == 5)
+	if (a->length == 5)
 		five_numbers(a, b);
-	else if (total_pieces < 20)
+	else if (a->length < 20)
 		from_six_numbers(a, b, 2);
-	else if (total_pieces < 101)
+	else if (a->length < 101)
 		from_six_numbers(a, b, 5);
 	else
 		from_six_numbers(a, b, 8);
-		//	if (total_pieces > 100)
 }
 
 int	stack_in_order(t_stack *a)
@@ -80,36 +72,15 @@ void	print_error(void)
 	exit (-1);
 }
 
-void	free_all(t_stack *f)
+void	free_all(t_stack *a)
 {
 	t_element	*tmp;
 
-	while (f->top_element->next != NULL)
+	while (a->top_element->next != NULL)
 	{
-		tmp = f->top_element;
-		f->top_element = tmp->next;
+		tmp = a->top_element;
+		a->top_element = tmp->next;
 		free(tmp);
 	}
-	free(f->top_element);
+	free(a->top_element);
 }
-
-//FUNCION para ver la lista - A BORRAR
-
-void	print_stack(t_stack *stack)
-{
-	t_element	*tmp;
-	
-	if(stack->length < 1)
-	{
-		printf("El stack esta vacio\n");
-		return ;
-	}
-	tmp = stack->top_element;
-	printf("Value: %d\tIndex: %d\n", tmp->value, tmp->index);
-	while (tmp->next)
-	{
-		tmp = tmp->next;
-		printf("\nValue: %d\tIndex: %d\n", tmp->value, tmp->index);
-	}
-}
-

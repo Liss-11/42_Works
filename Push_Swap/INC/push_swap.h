@@ -6,7 +6,7 @@
 /*   By: afrolova <afrolova@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 00:51:52 by afrolova          #+#    #+#             */
-/*   Updated: 2022/08/20 22:26:39 by afrolova         ###   ########.fr       */
+/*   Updated: 2022/08/22 16:35:13 by afrolova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -45,10 +45,9 @@ typedef struct s_stack
 void	resolve(t_stack *a, t_stack *b);
 void	print_error();
 int		stack_in_order(t_stack *a);
-//funcion A BORRAR
-void		print_stack(t_stack *stack);
+void	free_all(t_stack *a);
 
-//push_swap
+//initializer
 
 void	init_stack_a (t_stack *a, int argc, char **argv);
 void	init_stack_b (t_stack *b);
@@ -102,16 +101,17 @@ void	five_numbers(t_stack *a, t_stack *b);
 //from_six_algorith
 
 void	from_six_numbers(t_stack *a, t_stack *b, int n_chunks);
-void	to_stack_b(t_stack *a, t_stack *b, int n_chunks);
 void	order_stack_b(t_stack *b, int index, int cut_num);
+void	return_to_stack_a(t_stack *a, t_stack *b);
+int		max_index_b(t_stack *b);
+void	check_order_stack_a(t_stack *a);
 
 //smart_rotate
 
 int		smart_rotate_direct(int num, t_stack *stack, int *mov);
 void	put_num_in_top_a(int num, t_stack *a);
-void	put_num_in_top_b(int num, t_stack *b);
-
-void	free_all(t_stack *f);
-
+void	put_num_in_top_b(int num, t_stack *a, t_stack *b);
+void	rotate_norm_b(t_stack *a, t_stack *b, int num, int mov);
+void	rotate_rev_b(t_stack *a, t_stack *b, int num, int mov);
 
 #endif

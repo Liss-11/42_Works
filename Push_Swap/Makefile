@@ -6,7 +6,7 @@
 #    By: afrolova <afrolova@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/12 00:19:49 by afrolova          #+#    #+#              #
-#    Updated: 2022/08/20 21:13:20 by afrolova         ###   ########.fr        #
+#    Updated: 2022/08/22 15:59:31 by afrolova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,7 @@ HEADER_LIBFT =	Libft/libft.h
 
 SRCS = 	main.c \
 	   	check_errors.c \
-		push_swap.c \
-		order_assign.c \
+		initializer.c \
 		swap_mov_and_actions.c \
 		push_mov_and_actions.c \
 		rotate_mov_and_actions.c \
