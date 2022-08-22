@@ -3,7 +3,7 @@
 
 FICHEROS
 
-[Main](file_definel/main.md)
+[Main](file_definer/main.md)
 
 [Check_Error](file_definer/check_error.md)
 
